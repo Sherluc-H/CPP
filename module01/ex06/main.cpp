@@ -19,13 +19,9 @@ int	main()
 	{
 		Weapon	club = Weapon("crude spiked club");
 
-		std::cout << "a" << std::endl;
 		HumanA bob("Bob", club);
-		std::cout << "b" << std::endl;
 		bob.attack();
-		std::cout << "c" << std::endl;
 		club.setType("some other type of club");
-		std::cout << "d" << std::endl;
 		bob.attack();
 	}
 	{

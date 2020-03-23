@@ -18,13 +18,12 @@
 class Weapon
 {
 	public:
-		Weapon();
-		~Weapon();
 		Weapon(std::string type);
+		~Weapon();
 		void setType(std::string type);
 		const std::string& getType(void);
 	private:
-		std::string *type;
+		std::string type;
 };
 
 #endif

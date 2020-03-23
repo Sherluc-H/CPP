@@ -11,15 +11,22 @@
 # **************************************************************************** #
 
 NAME= replace
+CC= clang++
+FLAGS= -Wall -Wextra -Werror
+RM= rm -f
+SRCS= main.cpp
 
-all:
+all: $(NAME)
 
-$(NAME):
+$(NAME): $(SRCS)
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean:
+	$(RM) *.replace
 
-fclean:
+fclean: clean
+	$(RM) $(NAME)
 
-re:
+re: fclean all
 
 .PHONY: all clean fclean re

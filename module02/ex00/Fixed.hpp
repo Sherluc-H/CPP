@@ -1,3 +1,6 @@
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 class Fixed
 {
 	public:
@@ -12,3 +15,5 @@ class Fixed
 		int			value;
 		static const int	nb_bits = 8;
 };
+
+#endif

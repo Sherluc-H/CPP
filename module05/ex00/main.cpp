@@ -7,6 +7,10 @@ int	main()
 	{
 		Bureaucrat b1("b1", 1);
 		std::cout << b1;
+		//b1.incGrade();
+		//std::cout << b1;
+		b1.decGrade();
+		std::cout << b1;
 	}
 	catch (std::exception & e1)
 	{
@@ -15,6 +19,10 @@ int	main()
 	try
 	{
 		Bureaucrat b2("b2", 150);
+		std::cout << b2;
+		//b2.decGrade();
+		//std::cout << b2;
+		b2.incGrade();
 		std::cout << b2;
 	}
 	catch (std::exception & e2)

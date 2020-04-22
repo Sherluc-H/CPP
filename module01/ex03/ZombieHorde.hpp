@@ -6,26 +6,26 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 18:03:55 by lhuang            #+#    #+#             */
-/*   Updated: 2020/02/12 13:43:04 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/23 01:15:42 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIEHORDE_HPP
 # define ZOMBIEHORDE_HPP
 
+# include <string>
 # include "Zombie.hpp"
-# include <stdlib.h>
-# include <time.h>
 
 class ZombieHorde
 {
 	public:
 		ZombieHorde(int n);
-		Zombie* get_horde(void);
 		~ZombieHorde();
+		void announce();
 	private:
-		Zombie *n_zombie;
-		static std::string r_name[10];
+		int		n;
+		Zombie	*n_zombie;
+		static	std::string r_name[10];
 };
 
 #endif

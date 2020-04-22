@@ -6,10 +6,12 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 15:06:15 by lhuang            #+#    #+#             */
-/*   Updated: 2020/02/11 17:49:38 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/22 23:15:42 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
 #include "Zombie.hpp"
 
 Zombie::Zombie(std::string name, std::string type)
@@ -21,10 +23,10 @@ Zombie::Zombie(std::string name, std::string type)
 
 Zombie::~Zombie()
 {
-	std::cout << this->name  << " says: bye" << std::endl;
+	std::cout << this->name  << " says: \"bye\"" << std::endl;
 }
 
-void Zombie::advert(void)
+void Zombie::announce(void)
 {
 	std::cout << "<" << this->name << " (" << this->type << ")>" << " Braiiiiiiinnnssss ..." << std::endl;
 }

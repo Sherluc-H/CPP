@@ -6,11 +6,14 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 16:18:34 by lhuang            #+#    #+#             */
-/*   Updated: 2020/02/13 19:09:30 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/23 00:38:32 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
 #include "HumanA.hpp"
+#include "Weapon.hpp"
 
 HumanA::HumanA(std::string name, Weapon &weapon) : weapon(weapon)
 {

@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 15:12:41 by lhuang            #+#    #+#             */
-/*   Updated: 2020/02/11 17:50:29 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/23 01:01:22 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,23 @@
 
 int	main()
 {
-	Zombie z1("bie", "type");
+	Zombie z1("ABC", "Walker");
 	ZombieEvent z_event;
-	z_event.setZombieType("type1");
-	Zombie *a = z_event.newZombie("name1");
+	z_event.setZombieType("Runner");
+	Zombie *a = z_event.newZombie("DEF");
 	Zombie *a1 = z_event.randomChump();
-	z_event.setZombieType("type2");
-	Zombie *b = z_event.newZombie("name2");
-	//delete z_event;
+	z_event.setZombieType("Flyer");
+	Zombie *b = z_event.newZombie("GHI");
 
-	//z_event = new ZombieEvent("type2");
+	a->announce();
+	a1->announce();
+	b->announce();
+	b->announce();
+	z1.announce();
 
-	//z_event->setZombieType("type2");
-	//delete z_event;
-	std::cout << "1" << std::endl;
-	a->advert();
-	a1->advert();
-
-	b->advert();
-	b->advert();
-	z1.advert();
-	//a->advert();
-	std::cout << "2" << std::endl;
 	delete a;
 	delete a1;
 	delete b;
-	//delete b;
+
+	return (0);
 }

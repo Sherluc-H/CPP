@@ -6,11 +6,14 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 16:27:54 by lhuang            #+#    #+#             */
-/*   Updated: 2020/02/13 19:14:48 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/23 00:37:45 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
 #include "HumanB.hpp"
+#include "Weapon.hpp"
 
 HumanB::HumanB(std::string name)
 {

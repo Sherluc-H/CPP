@@ -6,13 +6,12 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 15:24:57 by lhuang            #+#    #+#             */
-/*   Updated: 2020/02/10 15:27:43 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/22 17:50:40 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "contact.hpp"
-#include <iomanip>
-#include <ctime>
 
 Contact::Contact()
 {}
@@ -25,7 +24,7 @@ void Contact::set_index(int index)
 void Contact::set_first_name()
 {
 	std::cout << "first name: ";
-	std::cin >> this->first_name;
+	std::getline(std::cin, this->first_name);
 }
 
 std::string Contact::get_first_name()
@@ -36,7 +35,7 @@ std::string Contact::get_first_name()
 void Contact::set_last_name()
 {
 	std::cout << "last name: ";
-	std::cin >> this->last_name;
+	std::getline(std::cin, this->last_name);
 }
 
 std::string Contact::get_last_name()
@@ -47,7 +46,7 @@ std::string Contact::get_last_name()
 void Contact::set_nickname()
 {
 	std::cout << "nickname: ";
-	std::cin >> this->nickname;
+	std::getline(std::cin, this->nickname);
 }
 
 std::string Contact::get_nickname()
@@ -58,49 +57,49 @@ std::string Contact::get_nickname()
 void Contact::set_login()
 {
 	std::cout << "login: ";
-	std::cin >> this->login;
+	std::getline(std::cin, this->login);
 }
 
 void Contact::set_postal_address()
 {
 	std::cout << "postal address: ";
-	std::cin >> this->postal_address;
+	std::getline(std::cin, this->postal_address);
 }
 
 void Contact::set_email_address()
 {
 	std::cout << "email address: ";
-	std::cin >> this->email_address;
+	std::getline(std::cin, this->email_address);
 }
 
 void Contact::set_phone_number()
 {
 	std::cout << "phone number: ";
-	std::cin >> this->phone_number;
+	std::getline(std::cin, this->phone_number);
 }
 
 void Contact::set_birthday_date()
 {
 	std::cout << "birthday date: ";
-	std::cin >> this->birthday_date;
+	std::getline(std::cin, this->birthday_date);
 }
 
 void Contact::set_favorite_meal()
 {
 	std::cout << "favorite meal: ";
-	std::cin >> this->favorite_meal;
+	std::getline(std::cin, this->favorite_meal);
 }
 
 void Contact::set_underwear_color()
 {
 	std::cout << "underwear color: ";
-	std::cin >> this->underwear_color;
+	std::getline(std::cin, this->underwear_color);
 }
 
 void Contact::set_darkest_secret()
 {
 	std::cout << "darkest secret: ";
-	std::cin >> this->darkest_secret;
+	std::getline(std::cin, this->darkest_secret);
 }
 
 void Contact::show_contact_infos()

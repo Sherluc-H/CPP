@@ -6,11 +6,12 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 13:24:51 by lhuang            #+#    #+#             */
-/*   Updated: 2020/02/10 15:26:01 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/22 17:40:16 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <iostream>
+#include <iostream>
+#include <iomanip>
 #include "contact.hpp"
 
 void	ft_format_column(std::string info)
@@ -24,14 +25,7 @@ void	ft_format_column(std::string info)
 		std::cout << info;
 	}
 	else
-	{
-		while (i < 9)
-		{
-			std::cout << info[i];
-			i++;
-		}
-		std::cout << ".";
-	}
+		std::cout << info.substr(0, 9) << ".";
 }
 
 void	ft_add(Contact *contact, int index)
@@ -57,11 +51,11 @@ void	ft_show_all_contact(Contact *contact, int index)
 	i = 0;
 	ft_format_column("index");
 	std::cout << "|";
-	ft_format_column("prenom");
+	ft_format_column("first name");
 	std::cout << "|";
-	ft_format_column("nom de famille");
+	ft_format_column("last name");
 	std::cout << "|";
-	ft_format_column("pseudo");
+	ft_format_column("nickname");
 	std::cout << std::endl;
 	while (i < index)
 	{
@@ -102,8 +96,6 @@ void	ft_show_contact(Contact *contact, int index)
 		std::cout << "no contact yet" << std::endl;
 }
 
-
-
 int	main(void)
 {
 	Contact contact[8];	
@@ -114,8 +106,7 @@ int	main(void)
 	while (input.compare("EXIT") != 0)
 	{
 		std::cout << "Please enter a command [ADD|SEARCH|EXIT]" << std::endl;
-		std::cin >> input;
-		std::cin.clear();
+		std::getline(std::cin, input);
 		if (input.compare("ADD") == 0 && index < 8)
 		{
 			ft_add(contact, index);

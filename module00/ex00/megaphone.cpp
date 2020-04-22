@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 15:28:42 by lhuang            #+#    #+#             */
-/*   Updated: 2020/02/10 19:20:22 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/22 16:29:40 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	main(int argc, char **argv)
 		while (argv[i][j])
 		{
 			argv[i][j] = std::toupper(argv[i][j]);
-		//	if (argv[i][j] >= 97 && argv[i][j] <= 122)
-		//		argv[i][j] = argv[i][j] - 32;
 			j++;
 		}
 		std::cout << argv[i];

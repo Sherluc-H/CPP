@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/25 22:58:16 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/25 23:06:56 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include <stdlib.h>
 #include <time.h>
 #include "FragTrap.hpp"
@@ -8,11 +21,11 @@ FragTrap::FragTrap()
 	std::cout << "Default Constructor: A FR4G-TP has been created" << std::endl;
 	this->hit_pts = 100;
 	this->max_hit_pts = 100;
-	//this->nrg_pts = 100;
-	//this->max_nrg_pts = 100;
+	this->nrg_pts = 100;
+	this->max_nrg_pts = 100;
 	this->level = 1;
 	this->name = "no name";
-	//this->melee_att_dam = 30;
+	this->melee_att_dam = 30;
 	this->ranged_att_dam = 20;
 	this->armor_dam_reduc = 5;
 	srand(time(NULL));

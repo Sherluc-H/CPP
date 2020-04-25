@@ -1,9 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/25 22:57:34 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/25 23:55:06 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
 {
 	std::cout << "Default CL4P-TP Created" << std::endl;
+	this->hit_pts = 0;
+	this->max_hit_pts = 0;
+	this->nrg_pts = 0;
+	this->max_hit_pts = 0;
+	this->level = 0;
+	this->name = "no name";
+	this->melee_att_dam = 0;
+	this->ranged_att_dam = 0;
+	this->armor_dam_reduc = 0;
 }
 
 ClapTrap::~ClapTrap()
@@ -20,6 +42,15 @@ ClapTrap::ClapTrap(const ClapTrap& ct)
 ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "Param  CL4P-TP Created" << std::endl;
+	this->hit_pts = 0;
+	this->max_hit_pts = 0;
+	this->nrg_pts = 0;
+	this->max_hit_pts = 0;
+	this->level = 0;
+	this->name = "no name";
+	this->melee_att_dam = 0;
+	this->ranged_att_dam = 0;
+	this->armor_dam_reduc = 0;
 	this->name = name;
 }
 
@@ -49,10 +80,11 @@ void ClapTrap::meleeAttack(std::string const & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	amount = amount - this->armor_dam_reduc;
 	std::cout << this->name << "'s armor reduced damages by " << this->armor_dam_reduc << std::endl;
-	if (amount < 0)
+	if (amount < this->armor_dam_reduc)
 		amount = 0;
+	else
+		amount = amount - this->armor_dam_reduc;
 	if (this->hit_pts < amount)
 		amount = this->hit_pts;
 	this->hit_pts = this->hit_pts - amount;

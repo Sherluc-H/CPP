@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/25 21:46:02 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/25 23:57:06 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
@@ -49,10 +62,11 @@ void ClapTrap::meleeAttack(std::string const & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	amount = amount - this->armor_dam_reduc;
 	std::cout << this->name << "'s armor reduced damages by " << this->armor_dam_reduc << std::endl;
-	if (amount < 0)
+	if (amount < this->armor_dam_reduc)
 		amount = 0;
+	else
+		amount = amount - this->armor_dam_reduc;
 	if (this->hit_pts < amount)
 		amount = this->hit_pts;
 	this->hit_pts = this->hit_pts - amount;

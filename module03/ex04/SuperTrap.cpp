@@ -1,18 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   SuperTrap.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/25 23:01:01 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/25 23:22:25 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include "SuperTrap.hpp"
 
 SuperTrap::SuperTrap()
 {
 	std::cout << "default SUPER-TP Created" << std::endl;
-	//this->hit_pts = FragTrap::hit_pts;
-	//this->max_hit_pts = FragTrap::max_hit_pts;
-	//this->nrg_pts = NinjaTrap::nrg_pts;
-	//this->max_nrg_pts = NinjaTrap::max_nrg_pts;
 	this->level = 1;
 	this->name = "no name";
-	//this->melee_att_dam = NinjaTrap::melee_att_dam;
-	//this->ranged_att_dam = FragTrap::ranged_att_dam;
-	//this->armor_dam_reduc = FragTrap::armor_dam_reduc;
 }
 
 SuperTrap::~SuperTrap()
@@ -29,15 +35,8 @@ SuperTrap::SuperTrap(const SuperTrap& spt)
 SuperTrap::SuperTrap(std::string name)
 {
 	std::cout << name << " SUPER-TP Created with param" << std::endl;
-	//this->hit_pts = FragTrap::hit_pts;
-	//this->max_hit_pts = FragTrap::max_hit_pts;
-	//this->nrg_pts = NinjaTrap::nrg_pts;
-	//this->max_nrg_pts = NinjaTrap::max_nrg_pts;
 	this->level = 1;
 	this->name = name;
-	//this->melee_att_dam = NinjaTrap::melee_att_dam;
-	//this->ranged_att_dam = FragTrap::ranged_att_dam;
-	//this->armor_dam_reduc = FragTrap::armor_dam_reduc;
 }
 
 SuperTrap &SuperTrap::operator=(const SuperTrap& spt)

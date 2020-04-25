@@ -1,18 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   NinjaTrap.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/25 22:59:01 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/25 23:25:02 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include "NinjaTrap.hpp"
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 NinjaTrap::NinjaTrap()
 {
 	std::cout << "Create NINJ4-TP with default constructor" << std::endl;
-	//this->hit_pts = 60;
-	//this->max_hit_pts = 60;
+	if (this->hit_pts == 0)
+		this->hit_pts = 60;
+	if (this->max_hit_pts == 0)
+		this->max_hit_pts = 60;
 	this->nrg_pts = 120;
 	this->max_nrg_pts = 120;
 	this->level = 1;
 	this->name = "no name";
 	this->melee_att_dam = 60;
-	//this->ranged_att_dam = 5;
-	//this->armor_dam_reduc = 0;
+	if (this->ranged_att_dam == 0)
+		this->ranged_att_dam = 5;
+	if (this->armor_dam_reduc == 0)
+		this->armor_dam_reduc = 0;
 }
 
 NinjaTrap::~NinjaTrap()

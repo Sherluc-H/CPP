@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/25 21:11:22 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/25 23:59:27 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include <stdlib.h>
 #include <time.h>
 #include "FragTrap.hpp"
@@ -71,10 +84,11 @@ void FragTrap::meleeAttack(std::string const & target)
 
 void FragTrap::takeDamage(unsigned int amount)
 {
-	amount = amount - this->armor_dam_reduc;
 	std::cout << "(" << "FR4G-TP " << this->name << "\'s armor reduced damages by "<< this->armor_dam_reduc << ")" << std::endl;
-	if (amount < 0)
+	if (amount < this->armor_dam_reduc)
 		amount = 0;
+	else
+		amount = amount - this->armor_dam_reduc;
 	if (this->hit_pts < amount)
 		amount = this->hit_pts;
 	this->hit_pts = this->hit_pts - amount;

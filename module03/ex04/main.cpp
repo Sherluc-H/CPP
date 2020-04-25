@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/25 22:58:54 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 00:06:58 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
@@ -10,14 +22,14 @@ int	main(void)
 	FragTrap ft17("no17");
 	FragTrap ft18("no18");
 	FragTrap ft4(ft18);
-	//FragTrap ft5;
+	FragTrap ft5;
 	ScavTrap st1("scav1");
 	ScavTrap st2("scav2");
 	ScavTrap st3(st2);
-	//ScavTrap st4;
+	ScavTrap st4;
 	NinjaTrap nt1("ninja1");
 	NinjaTrap nt2("ninja2");
-	//NinjaTrap nt3;
+	NinjaTrap nt3;
 	SuperTrap spt1("super1");
 	SuperTrap spt2("super2");
 
@@ -84,5 +96,11 @@ int	main(void)
 	spt1.meleeAttack(nt1.getName());
 	spt1.ninjaShoebox(nt1);
 	spt1.vaulthunter_dot_exe(nt1.getName());
+	spt1.takeDamage(50);
+	spt1.ninjaShoebox(nt1);
+	nt3.takeDamage(20);
+	SuperTrap st(spt1);
+	st.takeDamage(30);
+	spt1.takeDamage(55);
 	return (0);
 }

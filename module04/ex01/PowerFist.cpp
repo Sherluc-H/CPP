@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 15:21:53 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 15:32:49 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "PowerFist.hpp"
 #include "AWeapon.hpp"
@@ -27,5 +39,5 @@ PowerFist &PowerFist::operator=(const PowerFist& pf)
 
 void PowerFist::attack() const
 {
-	std::cout << "* pschhh... SBAM!*" << std::endl;
+	std::cout << "* pschhh... SBAM! *" << std::endl;
 }

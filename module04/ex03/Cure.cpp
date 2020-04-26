@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 22:39:09 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 23:48:28 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Cure.hpp"
-#include "ICharacter.hpp"
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-Cure::Cure()
+Cure::Cure(): AMateria("cure")
 {
 	std::cout << "Cure default constructor" << std::endl;
-	this->type = "cure";
 }
 
 Cure::~Cure()
@@ -14,11 +25,10 @@ Cure::~Cure()
 	std::cout << "Cure destructor" << std::endl;
 }
 
-Cure::Cure(const Cure& cure)
+Cure::Cure(const Cure& cure): AMateria("cure")
 {
 	(void)cure;
 	std::cout << "Cure copy constructor" << std::endl;
-	this->type = "cure";
 }
 
 Cure &Cure::operator=(const Cure& cure)

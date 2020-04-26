@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 22:41:53 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 01:40:11 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
@@ -22,7 +34,7 @@ int main()
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
+	tmp = src->createMateria("curee");
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
@@ -32,8 +44,8 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	//me->unequip(0);
-	//me->unequip(1);
+	me->unequip(0);
+
 	ICharacter* bob = new Character("bob");
 
 	me->use(0, *bob);
@@ -52,6 +64,5 @@ int main()
 	delete me;
 	delete src;
 
-	//system("leaks a.out");
 	return 0;
 }

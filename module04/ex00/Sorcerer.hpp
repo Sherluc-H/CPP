@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Sorcerer.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 14:04:28 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 14:06:50 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SORCERER_HPP
 # define SORCERER_HPP
 
-# include <string>
 # include <iostream>
+# include <string>
 # include "Victim.hpp"
 
 class Sorcerer

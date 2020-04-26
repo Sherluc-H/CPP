@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 22:38:10 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 23:43:38 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
@@ -8,15 +20,13 @@ class ICharacter;
 class AMateria
 {
 	private:
-		unsigned int _xp;
-
-	protected:
 		AMateria();
-		AMateria(const AMateria& am);
 		std::string type;
+		unsigned int _xp;
 
 	public:
 		AMateria(std::string const & type);
+		AMateria(const AMateria& am);
 		AMateria &operator=(const AMateria& am);
 		virtual ~AMateria();
 

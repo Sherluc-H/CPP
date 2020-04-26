@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 15:52:12 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 16:07:27 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Enemy.hpp"
 
@@ -17,6 +29,14 @@ Enemy::Enemy(const Enemy& en)
 	*this = en;
 }
 
+Enemy &Enemy::operator=(const Enemy& en)
+{
+	std::cout << "equal op Enemy" << std::endl;
+	this->hp = en.hp;
+	this->type = en.type;
+	return (*this);
+}
+
 Enemy::Enemy(int hp, std::string const & type)
 {
 	std::cout << "Enemy Param Constructor" << std::endl;
@@ -24,7 +44,7 @@ Enemy::Enemy(int hp, std::string const & type)
 	this->type = type;
 }
 
-std::string Enemy::getType() const
+std::string const & Enemy::getType() const
 {
 	return (this->type);
 }

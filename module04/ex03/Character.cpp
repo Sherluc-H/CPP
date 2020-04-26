@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 22:38:43 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 00:56:29 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include "Character.hpp"
@@ -91,6 +103,8 @@ void Character::equip(AMateria* m)
 	int i;
 	AMateria **new_inv;
 	(void)m;
+	if (!m)
+		return ;
 	if (this->nb_of_mat > 3)
 		return ;
 	this->nb_of_mat = this->nb_of_mat + 1;
@@ -115,18 +129,23 @@ void Character::unequip(int idx)
 	if (this->nb_of_mat == 0 || idx < 0 || this->nb_of_mat <= idx)
 		return ;
 	this->nb_of_mat = this->nb_of_mat - 1;
-	new_inv = new AMateria*[this->nb_of_mat];
-	i = 0;
-	j = 0;
-	while (i < this->nb_of_mat + 1)
+	if (this->nb_of_mat > 0)
 	{
-		if (i != idx)
+		new_inv = new AMateria*[this->nb_of_mat];
+		i = 0;
+		j = 0;
+		while (i < this->nb_of_mat + 1)
 		{
-			new_inv[j] = this->mat_inv[i];
-			j++;
+			if (i != idx)
+			{
+				new_inv[j] = this->mat_inv[i];
+				j++;
+			}
+			i++;
 		}
-		i++;
 	}
+	else
+		new_inv = NULL;
 	delete this->mat_inv;
 	this->mat_inv = new_inv;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Victim.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 14:04:37 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 14:10:01 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include "Victim.hpp"
@@ -14,7 +26,6 @@ Victim::~Victim()
 
 Victim::Victim(const Victim& v)
 {
-	std::cout << "Victim Copy constructor" << std::endl;
 	*this = v;
 }
 

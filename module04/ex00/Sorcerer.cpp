@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Sorcerer.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 14:04:19 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 14:37:26 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include "Sorcerer.hpp"
 #include "Victim.hpp"
 
@@ -48,7 +61,6 @@ void Sorcerer::polymorph(Victim const & v) const
 
 std::ostream &operator<<(std::ostream &os, const Sorcerer& s)
 {
-	(void)s;
 	os << "I am " << s.getName() << ", " << s.getTitle() << ", and I like ponies!" << std::endl;
 	return (os);
 }

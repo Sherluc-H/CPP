@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AWeapon.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 15:17:28 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 16:08:01 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include "AWeapon.hpp"
 
 AWeapon::AWeapon()
@@ -34,7 +47,7 @@ AWeapon::~AWeapon()
 	std::cout << "AWeapon Destructor" << std::endl;
 }
 
-std::string AWeapon::getName() const
+std::string const & AWeapon::getName() const
 {
 	return (this->name);
 }

@@ -1,5 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 19:22:58 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 19:23:52 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include "Character.hpp"
+#include "AWeapon.hpp"
+#include "Enemy.hpp"
 
 Character::Character()
 {
@@ -67,7 +82,7 @@ void Character::attack(Enemy *enemy)
 		delete enemy;
 }
 
-std::string Character::getName() const
+std::string const & Character::getName() const
 {
 	return (this->name);
 }

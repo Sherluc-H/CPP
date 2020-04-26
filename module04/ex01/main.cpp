@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 15:19:58 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 19:14:30 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "AWeapon.hpp"
 #include "PlasmaRifle.hpp"
@@ -8,25 +20,12 @@
 
 int	main(void)
 {
-	//AWeapon AW;
-	/*AWeapon *a;
-	PlasmaRifle pr;
-	PlasmaRifle p2;
-	PlasmaRifle p3(p2);
-	PowerFist pf;*/
-	//AWeapon b(pr);
-	//AWeapon a4("test", 1, 2);
 	Character *me = new Character("me");
-	Character *character = new Character("character");
 
 	std::cout << *me;
 
+	Enemy *b = new RadScorpion();
 
-	//SuperMutant *a = new SuperMutant();
-	RadScorpion *b = new RadScorpion();
-	//RadScorpion b;
-	me->attack(b);
-	std::cout << *me;
 	AWeapon* pr = new PlasmaRifle();
 	AWeapon* pf = new PowerFist();
 
@@ -46,16 +45,31 @@ int	main(void)
 	me->recoverAP();
 	me->recoverAP();
 	me->recoverAP();
-	//me->attack(b);
-	//std::cout << *me;
-	//p2 = pr;
-	//a = &pr;
 
 	delete pr;
 	delete pf;
+	delete me;
+
+	Character *character = new Character("character");
+
+	SuperMutant *a = new SuperMutant();
+
+	character->attack(a);
+	std::cout << *character;
+	std::cout << *character;
+
+	AWeapon *aw;
+	PowerFist pf2;
+	aw = &pf2;
+	character->equip(aw);
+	character->attack(a);
+	character->attack(a);
+	character->attack(a);
+	character->attack(a);
+	std::cout << *character;
+	character->recoverAP();
+	std::cout << *character;
 	delete character;
-	//delete spm;
-	//delete rds;
-	//delete spm2;
+
 	return (0);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Squad.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/26 20:04:52 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/26 20:51:30 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Squad.hpp"
 #include "ISpaceMarine.hpp"
@@ -5,7 +17,6 @@
 Squad::Squad()
 {
 	std::cout << "Squad default constructor" << std::endl;
-	this->unit = new ISpaceMarine*[0];
 	this->nb_of_squads = 0;
 }
 
@@ -13,7 +24,7 @@ Squad::~Squad()
 {
 	int i;
 
-	std::cout << "Squad destructor" << this << std::endl;
+	std::cout << "Squad destructor" << std::endl;
 	if (this->nb_of_squads > 0)
 	{
 		i = 0;
@@ -22,13 +33,14 @@ Squad::~Squad()
 			delete this->unit[i];
 			i++;
 		}
+		delete this->unit;
 	}
 }
 
 Squad::Squad(const Squad &sq)
 {
 	int i;
-	std::cout << "Squad copy constructor" << this << std::endl;
+	std::cout << "Squad copy constructor" << std::endl;
 	if (sq.nb_of_squads > 0)
 	{
 		this->unit = new ISpaceMarine*[sq.nb_of_squads];
@@ -47,7 +59,7 @@ Squad::Squad(const Squad &sq)
 Squad &Squad::operator=(const Squad & sq)
 {
 	int i;
-	std::cout << "Squad op=" << this << std::endl;
+	std::cout << "Squad op=" << std::endl;
 	if (this->nb_of_squads > 0)
 	{
 		i = 0;

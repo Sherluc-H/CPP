@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 13:51:02 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 15:12:56 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
@@ -22,9 +34,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
 	std::cout << "Bureaucrat Param Constructor" << std::endl;
 	if (grade < 1)
-		throw(GradeTooHighException());
+		throw(Bureaucrat::GradeTooHighException());
 	else if (grade > 150)
-		throw(GradeTooLowException());
+		throw(Bureaucrat::GradeTooLowException());
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& bureaucrat)
@@ -73,7 +85,7 @@ Bureaucrat &Bureaucrat::GradeTooLowException() throw()
 	return (*this);
 }
 
-const char * Bureaucrat::what() const throw()
+const char *Bureaucrat::what() const throw()
 {
 	return (this->error_msg.c_str());
 }

@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 15:22:45 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 17:30:24 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FORM_HPP
 # define FORM_HPP
 
 class Bureaucrat;
 
-# include <string>
 # include <iostream>
+# include <string>
 # include <exception>
 # include "Bureaucrat.hpp"
 
 class Form: public std::exception
 {
 	public:
-		~Form() _NOEXCEPT;
+		~Form() throw();
 		Form(const Form& form);
 		Form(std::string name, int sign_grade, int exec_grade);
 		Form &operator=(const Form& form);
@@ -21,7 +33,7 @@ class Form: public std::exception
 		int getExecGrade() const;
 		Form &GradeTooHighException() throw();
 		Form &GradeTooLowException() throw();
-		const char * what() const throw();
+		const char *what() const throw();
 		void beSigned(const Bureaucrat& bureaucrat);
 		
 	private:

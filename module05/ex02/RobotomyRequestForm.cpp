@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 18:10:44 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 22:24:01 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -5,7 +17,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(): Form("robotomy request form", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(): Form("robotomy request", 72, 45)
 {
 	std::cout << "Roboto default constructor" << std::endl;
 	srand(time(NULL));
@@ -23,7 +35,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rrf): Form(r
 	srand(time(NULL));
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("robotomy request form", 72, 45), target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target): Form("robotomy request", 72, 45), target(target)
 {
 	std::cout << "Roboto param constructor" << std::endl;
 	srand(time(NULL));

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 13:51:53 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 15:16:57 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Bureaucrat.hpp"
 
@@ -14,7 +26,7 @@ int	main()
 	}
 	catch (std::exception & e1)
 	{
-		std::cout << "1 not ok" << e1.what() << std::endl;
+		std::cout << "1 not ok: " << e1.what() << std::endl;
 	}
 	try
 	{
@@ -27,7 +39,7 @@ int	main()
 	}
 	catch (std::exception & e2)
 	{
-		std::cout << "2 not ok" << e2.what() << std::endl;
+		std::cout << "2 not ok: " << e2.what() << std::endl;
 	}
 	try
 	{
@@ -36,7 +48,7 @@ int	main()
 	}
 	catch (std::exception & e3)
 	{
-		std::cout << "3 not ok" << e3.what() << std::endl;
+		std::cout << "3 not ok: " << e3.what() << std::endl;
 	}
 
 	return (0);

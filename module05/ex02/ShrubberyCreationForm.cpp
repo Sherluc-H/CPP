@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 18:09:42 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 22:24:24 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include <fstream>
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form("shrubbery creation form", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(): Form("shrubbery creation", 145, 137)
 {
 	std::cout << "Shru default constructor" << std::endl;
 }
@@ -20,7 +32,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& scf): 
 	*this = scf;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("shrubbery creation form", 145, 137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("shrubbery creation", 145, 137), target(target)
 {
 	std::cout << "Shru param constructor" << std::endl;
 }
@@ -38,7 +50,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 	Form::execute(executor);
 	file.open(this->target);
-	file <<
+	if (file.is_open())
+	{
+		file <<
 "      ooooo           ooooooo\n\
     ooooooo o        o ooooooo\n\
    oo oooooooo      oooooooo oo\n\
@@ -49,5 +63,6 @@ oo\\\\__|   |            |   |__//oo\n\
    \\__|   |            |   |__/\n\
       |   |            |   |\n\
      /|   |\\          /|   |\\" << std::endl;
-	file.close();
+		file.close();
+	}
 }

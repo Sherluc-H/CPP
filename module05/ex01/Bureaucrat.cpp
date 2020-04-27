@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 15:20:21 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 16:49:01 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -22,9 +35,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
 	std::cout << "Bureaucrat Param Constructor" << std::endl;
 	if (grade < 1)
-		throw(GradeTooHighException());
+		throw(Bureaucrat::GradeTooHighException());
 	else if (grade > 150)
-		throw(GradeTooLowException());
+		throw(Bureaucrat::GradeTooLowException());
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& bureaucrat)
@@ -73,7 +86,7 @@ Bureaucrat &Bureaucrat::GradeTooLowException() throw()
 	return (*this);
 }
 
-const char * Bureaucrat::what() const throw()
+const char *Bureaucrat::what() const throw()
 {
 	return (this->error_msg.c_str());
 }
@@ -83,7 +96,7 @@ void Bureaucrat::signForm(Form& form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->name << " signed " << form.getName() << std::endl;
+		std::cout << this->name << " signs " << form.getName() << std::endl;
 	}
 	catch (std::exception & e)
 	{

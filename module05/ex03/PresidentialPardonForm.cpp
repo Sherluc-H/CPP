@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 21:10:28 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 21:59:49 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): Form("presidential pardon form", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(): Form("presidential pardon", 25, 5)
 {
 	std::cout << "Presi default constructor" << std::endl;
 }
@@ -19,7 +31,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& ppf
 	*this = ppf;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("presidential pardon form", 25, 5), target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("presidential pardon", 25, 5), target(target)
 {
 	std::cout << "Presi param constructor" << std::endl;
 }
@@ -37,3 +49,7 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	std::cout << this->target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }
 
+PresidentialPardonForm *PresidentialPardonForm::clone(std::string target) const
+{
+	return (new PresidentialPardonForm(target));
+}

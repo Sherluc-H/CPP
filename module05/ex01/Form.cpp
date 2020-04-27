@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 15:22:27 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 18:13:43 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include "Form.hpp"
@@ -21,12 +33,12 @@ Form::Form(const Form& form): is_signed(form.is_signed), sign_grade(form.sign_gr
 
 Form::Form(std::string name, int sign_grade, int exec_grade): name(name), sign_grade(sign_grade), exec_grade(exec_grade)
 {
-	std::cout << "Form Default constructor" << std::endl;
+	std::cout << "Form Param constructor" << std::endl;
 	this->is_signed = false;
 	if (this->sign_grade < 1 || this->exec_grade < 1)
-		throw (GradeTooHighException());
+		throw (Form::GradeTooHighException());
 	else if (this->sign_grade > 150 || this->exec_grade > 150)
-		throw (GradeTooLowException());
+		throw (Form::GradeTooLowException());
 }
 
 Form &Form::operator=(const Form& form)
@@ -77,7 +89,7 @@ const char *Form::what() const throw()
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->sign_grade)
-		throw (GradeTooLowException());
+		throw (Form::GradeTooLowException());
 	this->is_signed = true;
 }
 
@@ -86,6 +98,6 @@ std::ostream &operator<<(std::ostream& os, const Form& form)
 	std::string str_signed = "false";
 	if (form.getIsSigned())
 		str_signed = "true";
-	os << "Form " << form.getName() << " signed : " << str_signed << " , needs grade " << form.getSignGrade() << " to sign and needs " << form.getExecGrade() << " to execute" << std::endl;
+	os << "Form " << form.getName() << " signed : " << str_signed << ", needs grade " << form.getSignGrade() << " to sign and needs " << form.getExecGrade() << " to execute" << std::endl;
 	return (os);
 }

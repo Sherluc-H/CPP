@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/27 21:11:13 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/27 21:30:26 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
@@ -13,6 +25,7 @@ class RobotomyRequestForm: public Form
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm& rrf);
 		void execute(Bureaucrat const & executor) const;
+		RobotomyRequestForm *clone(std::string target) const;
 
 	private:
 		RobotomyRequestForm();

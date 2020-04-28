@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 19:40:39 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/28 20:50:45 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <exception>
 #include <string>
@@ -28,7 +40,7 @@ int	main(void)
 		//std::cout << a1[-1] << std::endl;
 		std::cout << a1[0] << std::endl;
 		std::cout << a1[1] << std::endl;
-		//std::cout << a1[2] << std::endl;
+		std::cout << a1[2] << std::endl;
 	}
 	catch (std::exception & e)
 	{

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 19:40:19 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/28 20:48:24 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
@@ -51,6 +63,7 @@ class Array
 			unsigned int i;
 
 			std::cout << "Array op=" << std::endl;
+			delete [] this->arr;
 			this->arr = new T[array.nb_elements];
 			i = 0;
 			while (i < array.nb_elements)

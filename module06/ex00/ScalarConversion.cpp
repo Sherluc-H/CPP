@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConversion.cpp                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 16:30:17 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/28 17:50:21 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "ScalarConversion.hpp"
 
@@ -20,27 +32,27 @@ ScalarConversion::ScalarConversion(const ScalarConversion& sc)
 ScalarConversion::ScalarConversion(int nb_int)
 {
 	std::cout << "Scalar int constructor" << std::endl;
-	this->nb_char = (char)nb_int;
+	this->nb_char = static_cast<char>(nb_int);
 	this->nb_int = nb_int;
-	this->nb_float = (float)nb_int;
-	this->nb_double = (double)nb_int;
+	this->nb_float = static_cast<float>(nb_int);
+	this->nb_double = static_cast<double>(nb_int);
 }
 
 ScalarConversion::ScalarConversion(float nb_float)
 {
 	std::cout << "Scalar float constructor" << std::endl;
-	this->nb_char = (char)nb_float;
-	this->nb_int = (int)nb_float;
+	this->nb_char = static_cast<char>(nb_float);
+	this->nb_int = static_cast<int>(nb_float);
 	this->nb_float = nb_float;
-	this->nb_double = (double)nb_float;
+	this->nb_double = static_cast<double>(nb_float);
 }
 
 ScalarConversion::ScalarConversion(double nb_double)
 {
 	std::cout << "Scalar double constructor" << std::endl;
-	this->nb_char = (char)nb_double;
-	this->nb_int = (int)nb_double;
-	this->nb_float = (float)nb_double;
+	this->nb_char = static_cast<char>(nb_double);
+	this->nb_int = static_cast<int>(nb_double);
+	this->nb_float = static_cast<float>(nb_double);
 	this->nb_double = nb_double;
 }
 
@@ -62,7 +74,7 @@ void ScalarConversion::display()
 	}
 	else
 	{
-		std::cout << "Non displayable" << std::endl;
+		std::cout << "char: Non displayable" << std::endl;
 	}
 	std::cout << "int: " << this->nb_int << std::endl;
 	if (this->nb_int == this->nb_float && this->nb_int < 1000000 && this->nb_int > -1000000)

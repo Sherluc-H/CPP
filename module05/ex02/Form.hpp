@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:58:13 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 17:58:38 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/28 16:22:16 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Bureaucrat;
 class Form
 {
 	public:
-		~Form();
+		virtual ~Form();
 		Form(const Form& form);
 		Form(std::string name, int sign_grade, int exec_grade);
 		Form &operator=(const Form& form);

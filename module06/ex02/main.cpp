@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 17:22:54 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/28 17:37:14 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
@@ -6,7 +18,7 @@
 #include "B.hpp"
 #include "C.hpp"
 
-Base* generate(void)
+Base * generate(void)
 {
 	int num;
 
@@ -45,7 +57,7 @@ void identify_from_pointer(Base * p)
 	}
 }
 
-void identify_from_reference(Base & p)
+void identify_from_reference( Base & p)
 {
 	Base base;
 
@@ -82,6 +94,8 @@ int	main(void)
 	base = generate();
 	identify_from_pointer(base);
 	identify_from_reference(*base);
+
 	delete base;
+
 	return (0);
 }

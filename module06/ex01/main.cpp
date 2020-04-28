@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 16:53:37 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/28 17:57:45 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include <string>
 #include <stdlib.h>
 #include <time.h>
 
@@ -32,12 +45,11 @@ void getRandomArray(char *s)
 	while (i < 8)
 	{
 		s[i] = getRandomChar();
-		std::cout << s[i] << std::endl;
 		i++;
 	}
 }
 
-void* serialize(void)
+void * serialize(void)
 {
 	unsigned char *data = new unsigned char[20];
 	char s1[8];
@@ -48,10 +60,10 @@ void* serialize(void)
 
 	i = 0;
 	getRandomArray(s1);
+	std::cout << std::string(s1, 8) << std::endl;
 	while (i < 8)
 	{
 		data[i] = s1[i];
-		//std::cout << s1[i] << std::endl;
 		i++;
 	}
 	n = rand() % 1000;
@@ -59,24 +71,23 @@ void* serialize(void)
 	j = 0;
 	while (i < 12)
 	{
-		data[i] = ((unsigned char*)(&n))[j];
-		//std::cout << (int)data[i] << std::endl;
+		data[i] = reinterpret_cast<unsigned char*>(&n)[j];
 		i++;
 		j++;
 	}
 	getRandomArray(s2);
+	std::cout << std::string(s2, 8) << std::endl;
 	j = 0;
 	while (i < 20)
 	{
 		data[i] = s2[j];
-		//std::cout << data[i] << std::endl;
 		i++;
 		j++;
 	}
 	return (data);
 }
 
-Data* deserialize(void * raw)
+Data * deserialize(void * raw)
 {
 	Data *data = new Data;
 	char s1[8];
@@ -88,14 +99,14 @@ Data* deserialize(void * raw)
 	i = 0;
 	while (i < 8)
 	{
-		s1[i] = ((char*)raw)[i];
+		s1[i] = reinterpret_cast<char*>(raw)[i];
 		i++;
 	}
 	data->s1 = std::string(s1, 8);
 	j = 0;
 	while (i < 12)
 	{
-		((unsigned char*)&n)[j] = ((unsigned char*)raw)[i];
+		reinterpret_cast<unsigned char*>(&n)[j] = reinterpret_cast<unsigned char*>(raw)[i];
 		i++;
 		j++;
 	}
@@ -103,7 +114,7 @@ Data* deserialize(void * raw)
 	j = 0;
 	while (i < 20)
 	{
-		s2[j] = ((char*)raw)[i];
+		s2[j] = reinterpret_cast<char*>(raw)[i];
 		i++;
 		j++;
 	}
@@ -117,10 +128,10 @@ int	main()
 	void *raw;
 	Data *data;
 	raw = serialize();
-	//std::cout << data->s1 << std::endl;
 	data = deserialize(raw);
-	std::cout << "end: s1 = " << data->s1 << ", n = " << data->n << ", s2 = " << data->s2 << std::endl;
-	delete (unsigned char*)raw;
+	std::cout << "Data: s1 = " << data->s1 << ", n = " << data->n << ", s2 = " << data->s2 << std::endl;
+	delete reinterpret_cast<unsigned char*>(raw);
 	delete data;
+
 	return (0);
 }

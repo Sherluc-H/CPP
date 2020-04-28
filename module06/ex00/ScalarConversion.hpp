@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConversion.hpp                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 16:30:58 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/28 16:31:18 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCALARCONVERSION_HPP
 # define SCALARCONVERSION_HPP
 
@@ -11,6 +23,7 @@ class ScalarConversion
 		ScalarConversion(double nb_double);
 		ScalarConversion &operator=(const ScalarConversion& sc);
 		void display();
+
 	private:
 		ScalarConversion();
 		char nb_char;

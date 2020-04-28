@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 16:29:37 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/28 16:49:00 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <string>
 #include <exception>
@@ -18,11 +30,11 @@ void	ft_check_special_value(std::string &nb_str, size_t &str_length)
 			{
 				nb_float = std::stof(nb_str, &pos_end_other);
 				std::cout << "float: " << nb_float << "f" << std::endl;
-				std::cout << "double: " << (double)nb_float << std::endl;
+				std::cout << "double: " << static_cast<double>(nb_float) << std::endl;
 			}
 			catch (std::out_of_range & e)
 			{
-				std::cout << "float: " << (nb_str[0] == '-' ? "" : "+") << (float)nb_double << "f" << std::endl;
+				std::cout << "float: " << (nb_str[0] == '-' ? "" : "+") << static_cast<float>(nb_double) << "f" << std::endl;
 				std::cout << "double: " << nb_double << std::endl;
 			}
 		}
@@ -31,12 +43,12 @@ void	ft_check_special_value(std::string &nb_str, size_t &str_length)
 			try
 			{
 				nb_float = std::stof(nb_str, &pos_end_other);
-				std::cout << "float: " << (float)nb_double << "f" << std::endl;
+				std::cout << "float: " << static_cast<float>(nb_double) << "f" << std::endl;
 				std::cout << "double: " << nb_double << std::endl;
 			}
 			catch (std::out_of_range & e)// -inff || +inff
 			{
-				std::cout << "float: " << (nb_str[0] == '-' ? "" : "+") << (float)nb_double << "f" << std::endl;
+				std::cout << "float: " << (nb_str[0] == '-' ? "" : "+") << static_cast<float>(nb_double) << "f" << std::endl;
 				std::cout << "double: " << nb_double << std::endl;
 			}
 		}

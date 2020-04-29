@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 23:39:40 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/29 00:07:06 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <algorithm>
 #include <exception>
@@ -27,7 +39,6 @@ Span::Span(unsigned int n)
 {
 	std::cout << "Span param constructor" << std::endl;
 	this->vec = std::vector<int>(n);
-	std::cout << this->vec.size() << std::endl;
 	this->index = 0;
 }
 
@@ -41,8 +52,7 @@ Span &Span::operator=(const Span& span)
 
 void Span::addNumber(int nb)
 {
-	std::cout << nb << "|" << this->vec.size() << "|" << this->index << std::endl;
-	if (this->index < (int)this->vec.size())
+	if (this->index < static_cast<int>(this->vec.size()))
 	{
 		this->vec.at(this->index) = nb;
 		this->index = this->index + 1;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mutantstack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/29 00:28:32 by lhuang            #+#    #+#             */
+/*   Updated: 2020/04/29 02:37:45 by lhuang           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
@@ -16,7 +28,6 @@ class MutantStack: public std::stack<T>
 		{
 			std::cout << "MutantStack destructor" << std::endl;
 		};
-/*
 		MutantStack(const MutantStack& mutantstack)
 		{
 			std::cout << "MutantStack copy constructor" << std::endl;
@@ -24,18 +35,26 @@ class MutantStack: public std::stack<T>
 		};
 		MutantStack &operator=(const MutantStack& mutantstack)
 		{
+			int i;
+
 			std::cout << "MutantStack op=" << std::endl;
+			if(this->nb > 0)
+			{
+				while (this->nb > 0)
+					this->pop();
+			}
+			i = 0;
+			while (i < mutantstack.nb)
+			{
+				this->push(*(&(mutantstack.top()) - mutantstack.nb + 1 + i));
+				i++;
+			}
 			this->nb = mutantstack.nb;
 			return (*this);
 		};
-*/
 		class MutantStackIterator
 		{
 			public:
-				MutantStackIterator()
-				{
-					std::cout << "MutantStackIt default constructor" << std::endl;
-				}
 				MutantStackIterator(MutantStack& mutantstack, bool is_start): mutantstack(mutantstack), is_start(is_start)
 				{
 					std::cout << "MutantStackIt param constructor" << std::endl;
@@ -45,6 +64,19 @@ class MutantStack: public std::stack<T>
 				{
 					std::cout << "MutantStackIt destructor" << std::endl;
 				};
+				MutantStackIterator(const MutantStackIterator& msit): mutantstack(msit.mutantstack)
+				{
+					std::cout << "MutantStackIt copy constructor" << std::endl;
+					*this = msit;
+				};
+				MutantStackIterator &operator=(const MutantStackIterator& msit)
+				{
+					std::cout << "MutantStackIt op=" << std::endl;
+					this->mutantstack = msit.mutantstack;
+					this->is_start = msit.is_start;
+					this->crement = msit.crement;
+					return (*this);
+				}
 				T &get_value_ref()
 				{
 					if (this->is_start)
@@ -53,9 +85,6 @@ class MutantStack: public std::stack<T>
 				}
 				T &operator*()
 				{
-					std::cout << "a" << this->is_start << std::endl;
-					std::cout << "b" << this->mutantstack.nb << std::endl;
-					std::cout << "c" << this->crement << std::endl;
 					return (get_value_ref());
 				};
 				T &operator++()
@@ -68,15 +97,17 @@ class MutantStack: public std::stack<T>
 					this->crement = this->crement - 1;
 					return (get_value_ref());
 				};
-				bool operator!=(MutantStackIterator& a)
+				bool operator!=(MutantStackIterator& msit)
 				{
-					std::cout << "comp" << std::endl;
-					if (this->get_value_ref() == a.get_value_ref())
+					if (this->get_value_ref() == msit.get_value_ref())
 						return (false);
-					std::cout << "t" << std::endl;
 					return (true);
 				}
 			private:
+				MutantStackIterator()
+				{
+					std::cout << "MutantStackIt default constructor" << std::endl;
+				}
 				MutantStack &mutantstack;
 				bool is_start;
 				int crement;
@@ -93,13 +124,11 @@ class MutantStack: public std::stack<T>
 		void push(T value)
 		{
 			std::stack<T>::push(value);
-			std::cout << "push " << value << std::endl;
 			this->nb = this->nb + 1;
 		}
 		void pop()
 		{
 			std::stack<T>::pop();
-			std::cout << "pop " << std::endl;
 			this->nb = this->nb - 1;
 		}
 	private:

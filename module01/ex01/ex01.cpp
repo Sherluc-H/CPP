@@ -6,13 +6,17 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 14:19:03 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/22 22:21:18 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/30 21:13:05 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <iostream>
+#include <string>
 
 void	memoryLeak()
 {
 	std::string*	panther = new std::string("String panther");
 	std::cout << *panther << std::endl;
+
 	delete panther;
 }

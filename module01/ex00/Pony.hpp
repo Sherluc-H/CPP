@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 19:23:24 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/23 00:58:21 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/30 20:49:40 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@
 class Pony
 {
 	public:
-		Pony(void);
-		~Pony(void);
-		void ponyOnTheStack(void);
-		void ponyOnTheHeap(void);
+		Pony();
+		~Pony();
+		void describe(void);
 
 	private:
 		std::string description;
-		std::string type;
-		void describe(void);
 
 };
 

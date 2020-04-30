@@ -6,14 +6,13 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 18:03:55 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/23 01:15:42 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/30 15:42:32 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIEHORDE_HPP
 # define ZOMBIEHORDE_HPP
 
-# include <string>
 # include "Zombie.hpp"
 
 class ZombieHorde
@@ -25,7 +24,6 @@ class ZombieHorde
 	private:
 		int		n;
 		Zombie	*n_zombie;
-		static	std::string r_name[10];
 };
 
 #endif

@@ -6,20 +6,20 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 18:03:04 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/23 01:20:20 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/04/30 15:42:46 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include <stdlib.h>
 #include <time.h>
 #include "ZombieHorde.hpp"
 #include "Zombie.hpp"
 
-std::string ZombieHorde::r_name[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
-
 ZombieHorde::ZombieHorde(int n)
 {
+	std::string r_name[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 	int i;
 	int	r_number;
 

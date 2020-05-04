@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 20:08:47 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/25 20:13:46 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/04 18:39:56 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,37 +72,37 @@ float Fixed::toFloat(void) const
 	return (((float)this->value)/256);
 }
 
-bool Fixed::operator>(const Fixed& fixed)
+bool Fixed::operator>(const Fixed& fixed) const
 {
 	return (this->value > fixed.value);
 }
 
-bool Fixed::operator<(const Fixed& fixed)
+bool Fixed::operator<(const Fixed& fixed) const
 {
 	return (this->value < fixed.value);
 }
 
-bool Fixed::operator>=(const Fixed& fixed)
+bool Fixed::operator>=(const Fixed& fixed) const
 {
 	return (this->value >= fixed.value);
 }
 
-bool Fixed::operator<=(const Fixed& fixed)
+bool Fixed::operator<=(const Fixed& fixed) const
 {
 	return (this->value <= fixed.value);
 }
 
-bool Fixed::operator==(const Fixed& fixed)
+bool Fixed::operator==(const Fixed& fixed) const
 {
 	return (this->value == fixed.value);
 }
 
-bool Fixed::operator!=(const Fixed& fixed)
+bool Fixed::operator!=(const Fixed& fixed) const
 {
 	return (this->value != fixed.value);
 }
 
-Fixed Fixed::operator+(const Fixed& fixed)
+Fixed Fixed::operator+(const Fixed& fixed) const
 {
 	Fixed new_fixed;
 
@@ -110,7 +110,7 @@ Fixed Fixed::operator+(const Fixed& fixed)
 	return (new_fixed);
 }
 
-Fixed Fixed::operator-(const Fixed& fixed)
+Fixed Fixed::operator-(const Fixed& fixed) const
 {
 	Fixed new_fixed;
 
@@ -118,7 +118,7 @@ Fixed Fixed::operator-(const Fixed& fixed)
 	return (new_fixed);
 }
 
-Fixed Fixed::operator*(const Fixed& fixed)
+Fixed Fixed::operator*(const Fixed& fixed) const
 {
 	Fixed new_fixed;
 
@@ -126,7 +126,7 @@ Fixed Fixed::operator*(const Fixed& fixed)
 	return (new_fixed);
 }
 
-Fixed Fixed::operator/(const Fixed& fixed)
+Fixed Fixed::operator/(const Fixed& fixed) const
 {
 	Fixed new_fixed;
 

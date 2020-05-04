@@ -6,12 +6,14 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 22:59:43 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/25 23:25:16 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/05 01:47:20 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef NINJATRAP_HPP
 # define NINJATRAP_HPP
+
+class SuperTrap;
 
 # include <string>
 # include "ClapTrap.hpp"
@@ -30,6 +32,7 @@ class NinjaTrap: virtual public ClapTrap
 		void ninjaShoebox(const FragTrap & ft);
 		void ninjaShoebox(const ScavTrap & st);
 		void ninjaShoebox(const NinjaTrap & nt);
+		void ninjaShoebox(const SuperTrap & st);
 		void meleeAttack(std::string const & target);
 
 };

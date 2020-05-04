@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 22:58:54 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 00:06:58 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/05 01:48:12 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,7 @@ int	main(void)
 	SuperTrap st(spt1);
 	st.takeDamage(30);
 	spt1.takeDamage(55);
+	nt2.ninjaShoebox(spt1);
+	nt2.ninjaShoebox(spt1);
 	return (0);
 }

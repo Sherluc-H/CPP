@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 22:59:01 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/25 23:25:02 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/05 01:37:36 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,19 @@ void NinjaTrap::ninjaShoebox(const NinjaTrap & nt)
 	}
 	this->nrg_pts = this->nrg_pts - 25;
 	std::cout << "NINJ4-TP [" << this->name << "] launches special attack hidden ninja dance to try to be friend with the NINJ4-TP but " << this->name << " was too far (current " << this->nrg_pts << "/" << this->max_nrg_pts << "ep)" << std::endl;
+
+}
+
+void NinjaTrap::ninjaShoebox(const SuperTrap & st)
+{
+	(void)st;
+	if (this->nrg_pts < 25)
+	{
+		std::cout << "NINJ4-TP [" << this->name << "] doesn't have enough energy to launch special attack on the SUPER-TP" << std::endl;
+		return ;
+	}
+	this->nrg_pts = this->nrg_pts - 25;
+	std::cout << "NINJ4-TP [" << this->name << "] launches special attack turn into a shoebox (current " << this->nrg_pts << "/" << this->max_nrg_pts << "ep)" << std::endl;
 
 }
 

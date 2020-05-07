@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:22:24 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 15:22:26 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:15:12 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ RadScorpion::~RadScorpion()
 
 RadScorpion::RadScorpion(const RadScorpion& rds) : Enemy(rds.hp, rds.type)
 {
+	std::cout << "* click click click *" << std::endl;
 	std::cout << "RadScorpion copy constructor" << std::endl;
 }
 

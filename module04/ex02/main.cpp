@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 20:03:06 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 21:07:15 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:56:37 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ int	main(void)
 	AssaultTerminator* jim = new AssaultTerminator;
 	Squad *vlc = new Squad;
 	vlc->push(bob);
+	std::cout << vlc->getCount() << std::endl;
 	vlc->push(jim);
+	std::cout << vlc->getCount() << std::endl;
 	vlc->push(bob);
+	std::cout << vlc->getCount() << std::endl;
 	vlc->push(NULL);
+	std::cout << vlc->getCount() << std::endl;
 	Squad vlc2;
 	vlc2 = Squad(*vlc);
 	for (int i = 0; i < vlc->getCount(); ++i)

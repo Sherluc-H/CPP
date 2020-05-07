@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 20:06:02 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 20:06:04 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:35:22 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ AssaultTerminator::~AssaultTerminator()
 AssaultTerminator::AssaultTerminator(const AssaultTerminator& at)
 {
 	std::cout << "Assault Terminator copy constructor" << std::endl;
+	std::cout << "* teleports from space *" << std::endl;
 	*this = at;
 }
 

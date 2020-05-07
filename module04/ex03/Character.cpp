@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 22:38:43 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 00:56:29 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 22:10:00 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Character::~Character()
 			delete this->mat_inv[i];
 			i++;
 		}
-		delete this->mat_inv;
+		delete [] this->mat_inv;
 	}
 }
 
@@ -76,7 +76,7 @@ Character &Character::operator=(const Character& c)
 			delete this->mat_inv[i];
 			i++;
 		}
-		delete this->mat_inv;
+		delete [] this->mat_inv;
 	}
 	this->name = c.name;
 	this->nb_of_mat = c.nb_of_mat;
@@ -102,6 +102,9 @@ void Character::equip(AMateria* m)
 {
 	int i;
 	AMateria **new_inv;
+	int prev_nb;
+
+	prev_nb = this->nb_of_mat;
 	(void)m;
 	if (!m)
 		return ;
@@ -116,7 +119,8 @@ void Character::equip(AMateria* m)
 		i++;
 	}
 	new_inv[i] = m;
-	delete this->mat_inv;
+	if (prev_nb > 0)
+		delete [] this->mat_inv;
 	this->mat_inv = new_inv;
 }
 
@@ -146,7 +150,7 @@ void Character::unequip(int idx)
 	}
 	else
 		new_inv = NULL;
-	delete this->mat_inv;
+	delete [] this->mat_inv;
 	this->mat_inv = new_inv;
 }
 

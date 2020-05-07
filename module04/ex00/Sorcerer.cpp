@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 14:04:19 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 14:37:26 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:24:49 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Sorcerer::~Sorcerer()
 
 Sorcerer::Sorcerer(const Sorcerer& s)
 {
+	std::cout << s.name << ", " << s.title << ", is born!" << std::endl;
 	*this = s;
 }
 

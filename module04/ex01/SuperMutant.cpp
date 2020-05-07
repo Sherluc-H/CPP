@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:22:59 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 15:23:01 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:14:45 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ SuperMutant::~SuperMutant()
 
 SuperMutant::SuperMutant(const SuperMutant& spm) : Enemy(spm.hp, spm.type)
 {
+	std::cout << "Gaaah. Me want smash heads!" << std::endl;
 	std::cout << "SuperMutant Copy Constructor" << std::endl;
 }
 

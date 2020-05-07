@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 20:06:23 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 20:06:25 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:35:36 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ TacticalMarine::~TacticalMarine()
 TacticalMarine::TacticalMarine(const TacticalMarine& tm)
 {
 	std::cout << "Tactical Marine copy constructor" << std::endl;
+	std::cout << "Tactical Marine ready for battle!" << std::endl;
 	*this = tm;
 }
 

@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 20:04:52 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 20:51:30 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:34:18 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Squad::~Squad()
 			delete this->unit[i];
 			i++;
 		}
-		delete this->unit;
+		delete [] this->unit;
 	}
 }
 
@@ -68,7 +68,7 @@ Squad &Squad::operator=(const Squad & sq)
 			delete this->unit[i];
 			i++;
 		}
-		delete this->unit;
+		delete [] this->unit;
 	}
 	if (sq.nb_of_squads > 0)
 	{
@@ -102,7 +102,9 @@ int Squad::push(ISpaceMarine* ism)
 {
 	int i;
 	ISpaceMarine **new_unit;
+	int prev_nb;
 
+	prev_nb = this->nb_of_squads;
 	if (!ism)
 	{
 		std::cout << "Can't push a null pointer" << std::endl;
@@ -128,7 +130,8 @@ int Squad::push(ISpaceMarine* ism)
 	}
 	if (this->nb_of_squads > 0)
 		new_unit[this->nb_of_squads - 1] = ism;
-	delete this->unit;
+	if (prev_nb > 0)
+		delete [] this->unit;
 	this->unit = new_unit;
 	return (this->nb_of_squads);
 }

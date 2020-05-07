@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 14:04:37 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 14:10:01 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:24:07 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Victim::~Victim()
 
 Victim::Victim(const Victim& v)
 {
+	std::cout << "Some random victim called "<< v.name << " just appeared!" << std::endl;
 	*this = v;
 }
 

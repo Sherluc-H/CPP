@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 22:57:34 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/25 23:55:06 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 01:38:31 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ ClapTrap::ClapTrap(std::string name)
 	this->nrg_pts = 0;
 	this->max_hit_pts = 0;
 	this->level = 0;
-	this->name = "no name";
+	this->name = name;
 	this->melee_att_dam = 0;
 	this->ranged_att_dam = 0;
 	this->armor_dam_reduc = 0;
-	this->name = name;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& ct)

@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 22:57:56 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/25 22:58:11 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/07 01:33:43 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@
 class ClapTrap
 {
 	public:
-		ClapTrap();
 		~ClapTrap();
 		ClapTrap(const ClapTrap& ct);
-		ClapTrap(std::string name);
 		ClapTrap &operator=(const ClapTrap& cp);
 		void rangedAttack(std::string const & target);
 		void meleeAttack(std::string const & target);
@@ -32,6 +30,8 @@ class ClapTrap
 		unsigned int getRangedAttDam(void) const;
 
 	protected:
+		ClapTrap();
+		ClapTrap(std::string name);
 		unsigned int	hit_pts;
 		unsigned int	max_hit_pts;
 		unsigned int	nrg_pts;

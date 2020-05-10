@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 20:05:27 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 20:05:29 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 02:26:58 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Squad: public ISquad
 {
 	public:
 		Squad();
-		~Squad();
+		virtual ~Squad();
 		Squad(const Squad & sq);
 		Squad &operator=(const Squad & sq);
 		int getCount() const;

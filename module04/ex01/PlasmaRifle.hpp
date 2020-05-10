@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:21:07 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 15:21:08 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 00:44:23 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class PlasmaRifle: public AWeapon
 {
 	public:
 		PlasmaRifle();
-		~PlasmaRifle();
+		virtual ~PlasmaRifle();
 		PlasmaRifle(const PlasmaRifle& pr);
 		PlasmaRifle &operator=(const PlasmaRifle& pr);
 		void attack() const;

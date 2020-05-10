@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 22:38:55 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 22:38:57 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 02:28:26 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Character: public ICharacter
 {
 	public:
-		~Character();
+		virtual ~Character();
 		Character(const Character& c);
 		Character(std::string name);
 		Character &operator=(const Character& c);

@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 14:35:25 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 14:35:27 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 00:02:57 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Victim
 {
 	public:
-		~Victim();
+		virtual ~Victim();
 		Victim(const Victim& v);
 		Victim(std::string name);
 		Victim &operator=(const Victim& v);

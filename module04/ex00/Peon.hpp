@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 14:04:08 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 14:04:09 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 00:19:37 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 class Peon: public Victim
 {
 	public:
-		~Peon();
+		virtual ~Peon();
 		Peon(const Peon& p);
 		Peon(std::string name);
-		Peon operator=(const Peon& p);
+		Peon &operator=(const Peon& p);
 		void getPolymorphed() const;
 
 	private:

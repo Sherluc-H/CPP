@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 22:39:16 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 22:39:18 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 02:27:50 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Cure: public AMateria
 {
 	public:
 		Cure();
-		~Cure();
+		virtual ~Cure();
 		Cure(const Cure& cure);
 		Cure &operator=(const Cure& cure);
 		AMateria* clone() const;

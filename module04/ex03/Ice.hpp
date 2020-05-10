@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 22:41:15 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 22:41:17 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 02:28:03 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Ice: public AMateria
 {
 	public:
 		Ice();
-		~Ice();
+		virtual ~Ice();
 		Ice(const Ice& ice);
 		Ice &operator=(const Ice& ice);
 		AMateria* clone() const;

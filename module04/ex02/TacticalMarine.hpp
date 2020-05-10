@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 20:06:33 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 20:06:35 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 02:27:11 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class TacticalMarine: public ISpaceMarine
 {
 	public:
 		TacticalMarine();
-		~TacticalMarine();
+		virtual ~TacticalMarine();
 		TacticalMarine(const TacticalMarine& tm);
 		TacticalMarine &operator=(const TacticalMarine& tm);
 		ISpaceMarine* clone() const;

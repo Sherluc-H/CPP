@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 22:42:14 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 22:42:16 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 02:28:45 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class MateriaSource: public IMateriaSource
 {
 	public:
 		MateriaSource();
-		~MateriaSource();
+		virtual ~MateriaSource();
 		MateriaSource(const MateriaSource& ms);
 		MateriaSource &operator=(const MateriaSource& ms);
 		void learnMateria(AMateria*);

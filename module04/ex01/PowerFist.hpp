@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 15:22:11 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/26 15:22:13 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 00:44:38 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class PowerFist: public AWeapon
 {
 	public:
 		PowerFist();
-		~PowerFist();
+		virtual ~PowerFist();
 		PowerFist(const PowerFist& pf);
 		PowerFist &operator=(const PowerFist& pf);
 		void attack() const;

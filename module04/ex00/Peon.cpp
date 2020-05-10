@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 14:03:59 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/07 20:21:10 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/10 00:19:23 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Peon::~Peon()
 	std::cout << "Bleuark..." << std::endl;
 }
 
-Peon::Peon(const Peon& p): Victime(p.name)
+Peon::Peon(const Peon& p): Victim(p.name)
 {
 	std::cout << "Zog zog." << std::endl;
 }
@@ -34,7 +34,7 @@ Peon::Peon(std::string name): Victim(name)
 	std::cout << "Zog zog." << std::endl;
 }
 
-Peon Peon::operator=(const Peon& p)
+Peon &Peon::operator=(const Peon& p)
 {
 	this->name = p.name;
 	return (*this);

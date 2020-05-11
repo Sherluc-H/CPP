@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:58:13 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/28 16:22:16 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/11 22:09:50 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ class Bureaucrat;
 
 # include <iostream>
 # include <string>
+# include <exception>
 # include "Bureaucrat.hpp"
 
 class Form
@@ -30,6 +31,33 @@ class Form
 		bool getIsSigned() const;
 		int getSignGrade() const;
 		int getExecGrade() const;
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				GradeTooHighException();
+				~GradeTooHighException();
+				GradeTooHighException(const GradeTooHighException& g);
+				GradeTooHighException &operator=(const GradeTooHighException& g);
+				const char *what() const throw();
+		};
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				GradeTooLowException();
+				~GradeTooLowException();
+				GradeTooLowException(const GradeTooLowException& g);
+				GradeTooLowException &operator=(const GradeTooLowException& g);
+				const char *what() const throw();
+		};
+		class NotSignedException: public std::exception
+		{
+			public:
+				NotSignedException();
+				~NotSignedException();
+				NotSignedException(const NotSignedException& n);
+				NotSignedException &operator=(const NotSignedException& n);
+				const char *what() const throw();
+		};
 		void beSigned(const Bureaucrat& bureaucrat);
 		virtual void execute(Bureaucrat const & executor) const = 0;
 

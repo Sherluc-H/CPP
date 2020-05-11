@@ -6,12 +6,13 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:20:21 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 16:49:01 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/11 21:31:49 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <exception>
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -20,7 +21,7 @@ Bureaucrat::Bureaucrat()
 	std::cout << "Default Bureaucrat Constructor" << std::endl;
 }
 
-Bureaucrat::~Bureaucrat() throw()
+Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Bureaucrat Destructor" << std::endl;
 }
@@ -44,7 +45,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& bureaucrat)
 {
 	std::cout << "Bureaucrat op=" << std::endl;
 	this->grade = bureaucrat.grade;
-	this->error_msg = bureaucrat.error_msg;
 	return (*this);
 }
 
@@ -74,21 +74,60 @@ void Bureaucrat::decGrade()
 		this->grade = this->grade + 1;
 }
 
-Bureaucrat &Bureaucrat::GradeTooHighException() throw()
+Bureaucrat::GradeTooHighException::GradeTooHighException()
 {
-	this->error_msg = "GradeTooHighException";
+	std::cout << "gradetoohigh default constructor" << std::endl;
+}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException()
+{
+	std::cout << "gradetoohigh destructor" << std::endl;
+}
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(const Bureaucrat::GradeTooHighException& g)
+{
+	std::cout << "gradetoohigh copy constructor" << std::endl;
+	*this = g;
+}
+
+Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(const Bureaucrat::GradeTooHighException& g)
+{
+	(void)g;
+	std::cout << "gradetoohigh op=" << std::endl;
 	return (*this);
 }
 
-Bureaucrat &Bureaucrat::GradeTooLowException() throw()
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	this->error_msg = "GradeTooLowException";
+	return ("Grade Too High");
+}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException()
+{
+	std::cout << "gradetoolow default constructor" << std::endl;
+}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException()
+{
+	std::cout << "gradetoolow destructor" << std::endl;
+}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException(const Bureaucrat::GradeTooLowException& g)
+{
+	std::cout << "gradetoolow copy constructor" << std::endl;
+	*this = g;
+}
+
+Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(const Bureaucrat::GradeTooLowException& g)
+{
+	(void)g;
+	std::cout << "gradetoolow op=" << std::endl;
 	return (*this);
 }
 
-const char *Bureaucrat::what() const throw()
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (this->error_msg.c_str());
+	return ("Grade Too Low");
 }
 
 void Bureaucrat::signForm(Form& form)

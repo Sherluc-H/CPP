@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 21:04:48 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 21:05:25 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/11 22:01:29 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Form;
 # include <exception>
 # include "Form.hpp"
 
-class Bureaucrat: public std::exception
+class Bureaucrat
 {
 	public:
-		~Bureaucrat() throw();
+		~Bureaucrat();
 		Bureaucrat(const Bureaucrat& bureaucrat);
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat &operator=(const Bureaucrat& bureaucrat);
@@ -31,9 +31,24 @@ class Bureaucrat: public std::exception
 		int getGrade() const;
 		void incGrade();
 		void decGrade();
-		Bureaucrat &GradeTooHighException() throw();
-		Bureaucrat &GradeTooLowException() throw();
-		const char *what() const throw();
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				GradeTooHighException();
+				~GradeTooHighException();
+				GradeTooHighException(const GradeTooHighException& g);
+				GradeTooHighException &operator=(const GradeTooHighException& g);
+				const char *what() const throw();
+		};
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				GradeTooLowException();
+				~GradeTooLowException();
+				GradeTooLowException(const GradeTooLowException& g);
+				GradeTooLowException &operator=(const GradeTooLowException& g);
+				const char *what() const throw();
+		};
 		void signForm(Form& form);
 		void executeForm(Form const & form);
 
@@ -41,7 +56,6 @@ class Bureaucrat: public std::exception
 		Bureaucrat();
 		const std::string name;
 		int grade;
-		std::string error_msg;
 };
 
 std::ostream &operator<<(std::ostream& os, const Bureaucrat& bureaucrat);

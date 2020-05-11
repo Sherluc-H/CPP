@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:57:50 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 18:13:14 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/11 22:10:16 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ Form::Form(std::string name, int sign_grade, int exec_grade): name(name), sign_g
 	std::cout << "Form Param constructor" << std::endl;
 	this->is_signed = false;
 	if (this->sign_grade < 1 || this->exec_grade < 1)
-		throw (std::logic_error("GradeTooHighException"));
+		throw (Form::GradeTooHighException());
 	else if (this->sign_grade > 150 || this->exec_grade > 150)
-		throw (std::logic_error("GradeTooLowException"));
+		throw (Form::GradeTooLowException());
 }
 
 Form &Form::operator=(const Form& form)
@@ -69,19 +69,103 @@ int Form::getExecGrade() const
 	return (this->exec_grade);
 }
 
+Form::GradeTooHighException::GradeTooHighException()
+{
+	std::cout << "gradetoohigh default constructor" << std::endl;
+}
+
+Form::GradeTooHighException::~GradeTooHighException()
+{
+	std::cout << "gradetoohigh destructor" << std::endl;
+}
+
+Form::GradeTooHighException::GradeTooHighException(const Form::GradeTooHighException& g)
+{
+	std::cout << "gradetoohigh copy constructor" << std::endl;
+	*this = g;
+}
+
+Form::GradeTooHighException &Form::GradeTooHighException::operator=(const Form::GradeTooHighException& g)
+{
+	(void)g;
+	std::cout << "gradetoohigh op=" << std::endl;
+	return (*this);
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return ("Grade Too High");
+}
+
+Form::GradeTooLowException::GradeTooLowException()
+{
+	std::cout << "gradetoolow default constructor" << std::endl;
+}
+
+Form::GradeTooLowException::~GradeTooLowException()
+{
+	std::cout << "gradetoolow destructor" << std::endl;
+}
+
+Form::GradeTooLowException::GradeTooLowException(const Form::GradeTooLowException& g)
+{
+	std::cout << "gradetoolow copy constructor" << std::endl;
+	*this = g;
+}
+
+Form::GradeTooLowException &Form::GradeTooLowException::operator=(const Form::GradeTooLowException& g)
+{
+	(void)g;
+	std::cout << "gradetoolow op=" << std::endl;
+	return (*this);
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return ("Grade Too Low");
+}
+
+Form::NotSignedException::NotSignedException()
+{
+	std::cout << "notsigned default constructor" << std::endl;
+}
+
+Form::NotSignedException::~NotSignedException()
+{
+	std::cout << "notsigned destructor" << std::endl;
+}
+
+Form::NotSignedException::NotSignedException(const Form::NotSignedException& n)
+{
+	std::cout << "notsigned copy constructor" << std::endl;
+	*this = n;
+}
+
+Form::NotSignedException &Form::NotSignedException::operator=(const Form::NotSignedException& n)
+{
+	(void)n;
+	std::cout << "notsigned op=" << std::endl;
+	return (*this);
+}
+
+const char *Form::NotSignedException::what() const throw()
+{
+	return ("Not Signed");
+}
+
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->sign_grade)
-		throw (std::logic_error("GradeTooLowException"));
+		throw (Form::GradeTooLowException());
 	this->is_signed = true;
 }
 
 void Form::execute(Bureaucrat const & executor) const
 {
 	if (!(this->is_signed))
-		throw(std::logic_error("FormNotSigned"));
+		throw(Form::NotSignedException());
 	else if (executor.getGrade() > this->exec_grade)
-		throw(std::logic_error("GradeTooLowException"));
+		throw(Form::GradeTooLowException());
 }
 
 std::ostream &operator<<(std::ostream& os, const Form& form)

@@ -6,12 +6,13 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:22:27 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 18:13:43 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/11 21:30:00 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <exception>
 #include "Form.hpp"
 
 Form::Form(): name(""), sign_grade(0), exec_grade(0)
@@ -20,7 +21,7 @@ Form::Form(): name(""), sign_grade(0), exec_grade(0)
 	this->is_signed = false;
 }
 
-Form::~Form() throw()
+Form::~Form()
 {
 	std::cout << "Form Destructor" << std::endl;
 }
@@ -45,7 +46,6 @@ Form &Form::operator=(const Form& form)
 {
 	std::cout << "Form op=" << std::endl;
 	this->is_signed = form.is_signed;
-	this->error_msg = form.error_msg;
 	return (*this);
 }
 
@@ -69,21 +69,60 @@ int Form::getExecGrade() const
 	return (this->exec_grade);
 }
 
-Form &Form::GradeTooHighException() throw()
+Form::GradeTooHighException::GradeTooHighException()
 {
-	this->error_msg = "GradeTooHighException";
+	std::cout << "gradetoohigh default constructor" << std::endl;
+}
+
+Form::GradeTooHighException::~GradeTooHighException()
+{
+	std::cout << "gradetoohigh destructor" << std::endl;
+}
+
+Form::GradeTooHighException::GradeTooHighException(const Form::GradeTooHighException& g)
+{
+	std::cout << "gradetoohigh copy constructor" << std::endl;
+	*this = g;
+}
+
+Form::GradeTooHighException &Form::GradeTooHighException::operator=(const Form::GradeTooHighException& g)
+{
+	(void)g;
+	std::cout << "gradetoohigh op=" << std::endl;
 	return (*this);
 }
 
-Form &Form::GradeTooLowException() throw()
+const char *Form::GradeTooHighException::what() const throw()
 {
-	this->error_msg = "GradeTooLowException";
+	return ("Grade Too High");
+}
+
+Form::GradeTooLowException::GradeTooLowException()
+{
+	std::cout << "gradetoolow default constructor" << std::endl;
+}
+
+Form::GradeTooLowException::~GradeTooLowException()
+{
+	std::cout << "gradetoolow destructor" << std::endl;
+}
+
+Form::GradeTooLowException::GradeTooLowException(const Form::GradeTooLowException& g)
+{
+	std::cout << "gradetoolow copy constructor" << std::endl;
+	*this = g;
+}
+
+Form::GradeTooLowException &Form::GradeTooLowException::operator=(const Form::GradeTooLowException& g)
+{
+	(void)g;
+	std::cout << "gradetoolow op=" << std::endl;
 	return (*this);
 }
 
-const char *Form::what() const throw()
+const char *Form::GradeTooLowException::what() const throw()
 {
-	return (this->error_msg.c_str());
+	return ("Grade Too Low");
 }
 
 void Form::beSigned(const Bureaucrat& bureaucrat)

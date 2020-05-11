@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:21:57 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 15:24:04 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/11 21:32:14 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Form;
 # include <exception>
 # include "Form.hpp"
 
-class Bureaucrat: public std::exception
+class Bureaucrat
 {
 	public:
-		~Bureaucrat() throw();
+		~Bureaucrat();
 		Bureaucrat(const Bureaucrat& bureaucrat);
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat &operator=(const Bureaucrat& bureaucrat);
@@ -31,16 +31,30 @@ class Bureaucrat: public std::exception
 		int getGrade() const;
 		void incGrade();
 		void decGrade();
-		Bureaucrat &GradeTooHighException() throw();
-		Bureaucrat &GradeTooLowException() throw();
-		const char *what() const throw();
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				GradeTooHighException();
+				~GradeTooHighException();
+				GradeTooHighException(const GradeTooHighException& g);
+				GradeTooHighException &operator=(const GradeTooHighException& g);
+				const char *what() const throw();
+		};
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				GradeTooLowException();
+				~GradeTooLowException();
+				GradeTooLowException(const GradeTooLowException& g);
+				GradeTooLowException &operator=(const GradeTooLowException& g);
+				const char *what() const throw();
+		};
 		void signForm(Form& form);
 
 	private:
 		Bureaucrat();
 		const std::string name;
 		int grade;
-		std::string error_msg;
 };
 
 std::ostream &operator<<(std::ostream& os, const Bureaucrat& bureaucrat);

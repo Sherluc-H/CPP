@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 21:11:24 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 22:00:51 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 16:33:00 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,14 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	std::ofstream file;
+	std::string filename;
 
-	Form::execute(executor);
-	file.open(this->target);
+	filename = this->target;
+	if (!(this->getIsSigned()))
+		throw(Form::NotSignedException());
+	else if (this->getExecGrade() < executor.getGrade())
+		throw(Form::GradeTooHighException());
+	file.open(filename.append("_shrubbery"));
 	if (file.is_open())
 	{
 		file <<

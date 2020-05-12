@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 21:11:13 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 21:30:26 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 16:20:26 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class RobotomyRequestForm: public Form
 {
 	public:
-		~RobotomyRequestForm();
+		virtual ~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm& rrf);
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm& rrf);

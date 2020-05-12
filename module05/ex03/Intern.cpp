@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 21:08:22 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 22:35:02 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 16:18:35 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Intern::~Intern()
 		delete this->all_forms[i];
 		i++;
 	}
-	delete this->all_forms;
+	delete [] this->all_forms;
 }
 
 Intern::Intern(const Intern& i)

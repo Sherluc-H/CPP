@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 21:12:04 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 21:32:18 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 16:20:36 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class ShrubberyCreationForm: public Form
 {
 	public:
-		~ShrubberyCreationForm();
+		virtual ~ShrubberyCreationForm();
 		ShrubberyCreationForm(const ShrubberyCreationForm& scf);
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& scf);

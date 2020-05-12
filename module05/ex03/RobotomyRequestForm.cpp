@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 21:10:58 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/27 22:00:11 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 16:32:46 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,11 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	int rand_num;
 
-	Form::execute(executor);
-	std::cout << "Driiil driiil driiiiiil..." << std::endl;
+	if (!(this->getIsSigned()))
+		throw(Form::NotSignedException());
+	else if (this->getExecGrade() < executor.getGrade())
+		throw(Form::GradeTooHighException());
+	std::cout << "* Driiil driiil driiiiiil... *" << std::endl;
 	rand_num = 0;
 	rand_num = rand() % 2;
 	if (rand_num == 1)

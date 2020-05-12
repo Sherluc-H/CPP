@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:22:27 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/11 21:30:00 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 16:12:39 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ Form::GradeTooHighException &Form::GradeTooHighException::operator=(const Form::
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade Too High");
+	return ("Form Grade Too High");
 }
 
 Form::GradeTooLowException::GradeTooLowException()
@@ -122,13 +122,13 @@ Form::GradeTooLowException &Form::GradeTooLowException::operator=(const Form::Gr
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade Too Low");
+	return ("Form Grade Too Low");
 }
 
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->sign_grade)
-		throw (Form::GradeTooLowException());
+		throw (Form::GradeTooHighException());
 	this->is_signed = true;
 }
 

@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 13:51:02 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/11 21:30:45 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 15:00:05 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade Too High");
+	return ("Bureaucrat Grade Too High");
 }
 
 Bureaucrat::GradeTooLowException::GradeTooLowException()
@@ -126,7 +126,7 @@ Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(co
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade Too Low");
+	return ("Bureaucrat Grade Too Low");
 }
 
 std::ostream &operator<<(std::ostream& os, const Bureaucrat& bureaucrat)

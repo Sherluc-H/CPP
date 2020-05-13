@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:20:21 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/12 14:59:16 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 18:11:45 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat Destructor" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat): name(bureaucrat.name)
 {
 	std::cout << "Bureaucrat Copy constructor" << std::endl;
 	*this = bureaucrat;
@@ -99,7 +99,7 @@ Bureaucrat::GradeTooHighException &Bureaucrat::GradeTooHighException::operator=(
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Bureaucrat Grade Too High");
+	return ("Grade Too High");
 }
 
 Bureaucrat::GradeTooLowException::GradeTooLowException()
@@ -127,7 +127,7 @@ Bureaucrat::GradeTooLowException &Bureaucrat::GradeTooLowException::operator=(co
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Bureaucrat Grade Too Low");
+	return ("Grade Too Low");
 }
 
 void Bureaucrat::signForm(Form& form)

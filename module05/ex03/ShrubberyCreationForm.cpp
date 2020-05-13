@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 21:11:24 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/12 16:33:00 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 19:20:06 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	if (!(this->getIsSigned()))
 		throw(Form::NotSignedException());
 	else if (this->getExecGrade() < executor.getGrade())
-		throw(Form::GradeTooHighException());
+		throw(Form::GradeTooLowException());
 	file.open(filename.append("_shrubbery"));
 	if (file.is_open())
 	{

@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 18:11:33 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/12 16:31:36 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 19:21:47 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	if (!(this->getIsSigned()))
 		throw(Form::NotSignedException());
 	else if (this->getExecGrade() < executor.getGrade())
-		throw(Form::GradeTooHighException());
+		throw(Form::GradeTooLowException());
 	std::cout << this->target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }
 

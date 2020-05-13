@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:22:27 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/12 16:12:39 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/12 18:14:18 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Form::~Form()
 	std::cout << "Form Destructor" << std::endl;
 }
 
-Form::Form(const Form& form): is_signed(form.is_signed), sign_grade(form.sign_grade), exec_grade(form.exec_grade)
+Form::Form(const Form& form): name(form.name), is_signed(form.is_signed), sign_grade(form.sign_grade), exec_grade(form.exec_grade)
 {
 	std::cout << "Form Copy constructor" << std::endl;
 	*this = form;
@@ -94,7 +94,7 @@ Form::GradeTooHighException &Form::GradeTooHighException::operator=(const Form::
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Form Grade Too High");
+	return ("Grade Too High");
 }
 
 Form::GradeTooLowException::GradeTooLowException()
@@ -122,13 +122,13 @@ Form::GradeTooLowException &Form::GradeTooLowException::operator=(const Form::Gr
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Form Grade Too Low");
+	return ("Grade Too Low");
 }
 
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->sign_grade)
-		throw (Form::GradeTooHighException());
+		throw (Form::GradeTooLowException());
 	this->is_signed = true;
 }
 

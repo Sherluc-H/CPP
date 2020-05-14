@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 16:29:37 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/28 16:49:00 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/14 13:36:40 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,44 +24,57 @@ void	ft_check_special_value(std::string &nb_str, size_t &str_length)
 	try
 	{
 		nb_double = std::stod(nb_str, &pos_end_other);
-		if (pos_end_other < str_length && nb_str[pos_end_other] == 'f')
+		try
 		{
-			try
+			nb_float = std::stof(nb_str, &pos_end_other);
+			if (nb_float != nb_float)//nan || nanf
 			{
-				nb_float = std::stof(nb_str, &pos_end_other);
-				std::cout << "float: " << nb_float << "f" << std::endl;
-				std::cout << "double: " << static_cast<double>(nb_float) << std::endl;
+				std::cout << "char: impossible" << std::endl;
+				std::cout << "int: impossible" << std::endl;		
+				if (pos_end_other < str_length && nb_str[pos_end_other] == 'f')
+				{
+					std::cout << "float: " << nb_float << "f" << std::endl;
+					std::cout << "double: " << static_cast<double>(nb_float) << std::endl;
+				}
+				else
+				{
+					std::cout << "float: " << static_cast<float>(nb_double) << "f" << std::endl;
+					std::cout << "double: " << nb_double << std::endl;
+				}
 			}
-			catch (std::out_of_range & e)
+			else
 			{
-				std::cout << "float: " << (nb_str[0] == '-' ? "" : "+") << static_cast<float>(nb_double) << "f" << std::endl;
-				std::cout << "double: " << nb_double << std::endl;
+				if (pos_end_other < str_length && nb_str[pos_end_other] == 'f')
+				{
+					ScalarConversion scalar(nb_float);
+					scalar.display();
+				}
+				else
+				{
+					ScalarConversion scalar(nb_double);
+					scalar.display();
+				}
 			}
 		}
-		else
+		catch (std::out_of_range & e)//float inff
 		{
-			try
-			{
-				nb_float = std::stof(nb_str, &pos_end_other);
-				std::cout << "float: " << static_cast<float>(nb_double) << "f" << std::endl;
-				std::cout << "double: " << nb_double << std::endl;
-			}
-			catch (std::out_of_range & e)// -inff || +inff
-			{
-				std::cout << "float: " << (nb_str[0] == '-' ? "" : "+") << static_cast<float>(nb_double) << "f" << std::endl;
-				std::cout << "double: " << nb_double << std::endl;
-			}
+			ScalarConversion scalar(nb_double);
+			scalar.display();
 		}
 	}
-	catch(std::invalid_argument & e)
+	catch(std::out_of_range & e)//double inf
 	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;		
+		std::cout << "float: " << "inff" << std::endl;
+		std::cout << "double: " << "inf" << std::endl;
+	}
+	catch(std::exception & e)
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;		
 		std::cout << "float: nanf" << std::endl;
 		std::cout << "double: nan" << std::endl;
-	}
-	catch(std::out_of_range & e)
-	{
-		std::cout << "float: " << (nb_str[0] == '-' ? "-" : "+") << "inff" << std::endl;
-		std::cout << "double: " << (nb_str[0] == '-' ? "-" : "+") << "inf" << std::endl;
 	}
 }
 
@@ -101,8 +114,6 @@ int	ft_get_type(std::string nb_str)
 	}
 	catch (std::exception & e)//check if +inf -inf nan + f
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
 		ft_check_special_value(nb_str, str_length);
 	}
 	return (0);

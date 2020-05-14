@@ -6,11 +6,11 @@
 #    By: lhuang <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/28 16:30:03 by lhuang            #+#    #+#              #
-#    Updated: 2020/04/28 16:30:04 by lhuang           ###   ########.fr        #
+#    Updated: 2020/05/14 13:45:04 by lhuang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= Scalar_Conversion
+NAME= convert
 CC= clang++
 CFLAGS= -Wall -Wextra -Werror
 RM= rm -f

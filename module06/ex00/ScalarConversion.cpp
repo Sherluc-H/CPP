@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 16:30:17 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/28 17:50:21 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/14 13:32:32 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void ScalarConversion::display()
 		std::cout << "char: Non displayable" << std::endl;
 	}
 	std::cout << "int: " << this->nb_int << std::endl;
-	if (this->nb_int == this->nb_float && this->nb_int < 1000000 && this->nb_int > -1000000)
+	if (this->nb_int == this->nb_float && this->nb_int < 100000 && this->nb_int > -100000)
 	{
 		std::cout << "float: " << this->nb_float << ".0" << "f" << std::endl;
 		std::cout << "double: " << this->nb_double << ".0" << std::endl;

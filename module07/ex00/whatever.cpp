@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:24:28 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/28 19:24:31 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/22 11:39:19 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 template <class T>
 void	swap(T &arg1, T &arg2)
 {
-	T tmp;
-	tmp = arg1;
+	T tmp(arg1);
+
 	arg1 = arg2;
 	arg2 = tmp;
 }

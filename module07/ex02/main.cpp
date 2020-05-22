@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:40:39 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/28 20:50:45 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/22 14:49:04 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	main(void)
 	std::cout << a1.size() << std::endl;
 	std::cout << a2.size() << std::endl;
 	std::cout << a3.size() << std::endl;
+	std::cout << "--start try--" << std::endl;
 	try
 	{
 		//std::cout << a1[-1] << std::endl;
@@ -59,5 +60,19 @@ int	main(void)
 	std::cout << s1[0] << std::endl;
 	std::cout << s2[0] << std::endl;
 	std::cout << s3[0] << std::endl;
+	std::cout << "--start try--" << std::endl;
+	try
+	{
+		std::cout << s1[0] << std::endl;
+		std::cout << s1[-1] << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	const Array<int> a5(5);
+	std::cout << a5[0] << std::endl;
+	//a5[0] = 1;
+	std::cout << a5.size() << std::endl;
 	return (0);
 }

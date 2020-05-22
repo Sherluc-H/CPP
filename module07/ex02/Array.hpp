@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:40:19 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/28 20:48:24 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/22 14:49:52 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,20 @@ class Array
 		T &operator[](int i)
 		{
 			if (i < 0)
-				throw std::out_of_range("index < 0 not allowed");
+				throw Array::OutOfLimit();
 			else if (i >= (int)this->nb_elements)
-				throw std::out_of_range("index above number of elements");
+				throw Array::OutOfLimit();
 			return (this->arr[i]);
 		};
-		unsigned int size()
+		const T &operator[](int i) const
+		{
+			if (i < 0)
+				throw Array::OutOfLimit();
+			else if (i >= (int)this->nb_elements)
+				throw Array::OutOfLimit();
+			return (this->arr[i]);
+		};
+		unsigned int size() const
 		{
 			return (this->nb_elements);
 		};
@@ -90,6 +98,32 @@ class Array
 	private:
 		T *arr;
 		unsigned int nb_elements;
+		class OutOfLimit: public std::exception
+		{
+			public:
+				OutOfLimit()
+				{
+					std::cout << "OutOfLimit default constructor" << std::endl;
+				};
+				~OutOfLimit()
+				{
+					std::cout << "OutOfLimit destructor" << std::endl;
+				};
+				OutOfLimit(const OutOfLimit& out)
+				{
+					(void)out;
+					std::cout << "OutOfLimit copy constructor" << std::endl;
+				};
+				OutOfLimit &operator=(const OutOfLimit& out)
+				{
+					(void)out;
+					std::cout << "OutOfLimit op=" << std::endl;
+				};
+				const char *what() const throw()
+				{
+					return ("Error Out Of Limit");
+				};
+		};
 };
 
 #endif

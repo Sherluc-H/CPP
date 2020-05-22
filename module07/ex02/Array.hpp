@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:40:19 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/22 14:49:52 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/22 16:37:36 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ class Array
 				{
 					std::cout << "OutOfLimit default constructor" << std::endl;
 				};
-				~OutOfLimit()
+				~OutOfLimit() throw()
 				{
 					std::cout << "OutOfLimit destructor" << std::endl;
 				};
@@ -113,11 +113,13 @@ class Array
 				{
 					(void)out;
 					std::cout << "OutOfLimit copy constructor" << std::endl;
+					*this = out;
 				};
 				OutOfLimit &operator=(const OutOfLimit& out)
 				{
 					(void)out;
 					std::cout << "OutOfLimit op=" << std::endl;
+					return (*this);
 				};
 				const char *what() const throw()
 				{

@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 22:54:25 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/28 23:26:49 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/23 12:57:45 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <algorithm>
 # include <vector>
-# include <array>
 
 template <class T>
 typename T::iterator	easyfind(T &container, int to_find)

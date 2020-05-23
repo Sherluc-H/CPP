@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 00:28:32 by lhuang            #+#    #+#             */
-/*   Updated: 2020/04/29 02:37:45 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/23 10:54:19 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class MutantStack: public std::stack<T>
 		MutantStack(const MutantStack& mutantstack)
 		{
 			std::cout << "MutantStack copy constructor" << std::endl;
+			this->nb = 0;
 			*this = mutantstack;
 		};
 		MutantStack &operator=(const MutantStack& mutantstack)
@@ -55,7 +56,11 @@ class MutantStack: public std::stack<T>
 		class MutantStackIterator
 		{
 			public:
-				MutantStackIterator(MutantStack& mutantstack, bool is_start): mutantstack(mutantstack), is_start(is_start)
+				MutantStackIterator()
+				{
+					std::cout << "MutantStackIt default constructor" << std::endl;
+				}
+				MutantStackIterator(MutantStack* mutantstack, bool is_start): mutantstack(mutantstack), is_start(is_start)
 				{
 					std::cout << "MutantStackIt param constructor" << std::endl;
 					this->crement = 0;
@@ -76,12 +81,6 @@ class MutantStack: public std::stack<T>
 					this->is_start = msit.is_start;
 					this->crement = msit.crement;
 					return (*this);
-				}
-				T &get_value_ref()
-				{
-					if (this->is_start)
-						return (*(&(this->mutantstack.top()) - this->mutantstack.nb + 1 + this->crement));
-					return (*(&(this->mutantstack.top()) + 1 + this->crement));
 				}
 				T &operator*()
 				{
@@ -104,22 +103,24 @@ class MutantStack: public std::stack<T>
 					return (true);
 				}
 			private:
-				MutantStackIterator()
+				T &get_value_ref()
 				{
-					std::cout << "MutantStackIt default constructor" << std::endl;
+					if (this->is_start)
+						return (*(&(this->mutantstack->top()) - this->mutantstack->nb + 1 + this->crement));
+					return (*(&(this->mutantstack->top()) + 1 + this->crement));
 				}
-				MutantStack &mutantstack;
+				MutantStack *mutantstack;
 				bool is_start;
 				int crement;
 		};
 		typedef MutantStackIterator iterator;
 		iterator begin()
 		{
-			return (iterator(*this, true));
+			return (iterator(this, true));
 		};
 		iterator end()
 		{
-			return (iterator(*this, false));
+			return (iterator(this, false));
 		};
 		void push(T value)
 		{

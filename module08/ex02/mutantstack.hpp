@@ -6,7 +6,7 @@
 /*   By: lhuang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 00:28:32 by lhuang            #+#    #+#             */
-/*   Updated: 2020/05/23 10:54:19 by lhuang           ###   ########.fr       */
+/*   Updated: 2020/05/23 15:32:15 by lhuang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ class MutantStack: public std::stack<T>
 				MutantStackIterator()
 				{
 					std::cout << "MutantStackIt default constructor" << std::endl;
+					this->mutantstack = NULL;
+					this->is_start = true;
+					this->crement = 0;
 				}
 				MutantStackIterator(MutantStack* mutantstack, bool is_start): mutantstack(mutantstack), is_start(is_start)
 				{
